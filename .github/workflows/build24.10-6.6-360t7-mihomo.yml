@@ -77,6 +77,8 @@ jobs:
       run: |
         cd openwrt
         ./scripts/feeds install -a
+        # mihomo-alpha/mihomo-meta CONFLICTS+PROVIDES cause Kconfig recursive dependency
+        rm -rf feeds/nikki/mihomo-alpha feeds/nikki/mihomo-meta
 
     - name: Load custom configuration
       run: |
